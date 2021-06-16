@@ -6,7 +6,7 @@ const [query,setQuery]=useState([])
 
   const handleSubmit = event => {
     event.preventDefault()
-    props.fetchGIFs(this.state.query)
+    props.fetchGIFs(query)
   }
 
   render() {
