@@ -1,12 +1,12 @@
 import React, { useState } from 'react'
 
-export default function() {
+export default function(props) {
 
 const [query,setQuery]=useState([])
 
-  handleSubmit = event => {
+  const handleSubmit = event => {
     event.preventDefault()
-    this.props.fetchGIFs(this.state.query)
+    props.fetchGIFs(this.state.query)
   }
 
   render() {
