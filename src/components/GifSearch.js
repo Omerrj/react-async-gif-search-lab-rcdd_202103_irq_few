@@ -12,7 +12,7 @@ const [query,setQuery]=useState([])
   render() {
     return (
       <div>
-        <form onSubmit={this.handleSubmit}>
+        <form onSubmit={handleSubmit}>
           <input type="text" value={this.state.query} onChange={event => this.setState({query: event.target.value})} />
         </form>
       </div>
