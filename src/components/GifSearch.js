@@ -1,10 +1,8 @@
 import React, { Component } from 'react'
 
-class GifSearch extends Component {
+export default function() {
 
-  state = {
-    query: ""
-  }
+const [query,setQuery]=useState([])
 
   handleSubmit = event => {
     event.preventDefault()
