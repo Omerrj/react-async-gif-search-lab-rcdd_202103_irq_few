@@ -1,25 +1,26 @@
-import React, { useEffect,useState } from 'react'
-import GifList from '../components/GifList'
-import GifSearch from '../components/GifSearch'
+import React, { Component } from 'react'
 
-export default function() {
+class GifSearch extends Component {
 
-  const [gifs,setGifs]=useState([])
+  state = {
+    query: ""
+  }
 
-  const fetchGIFs = (query = "dolphins") => {
-      fetch(`https://api.giphy.com/v1/gifs/search?q=${query}&api_key=dc6zaTOxFJmzC&rating=g&limit=3`)
-        .then(res => res.json())
-        .then(({data}) => {
-          setGifs(data.map( gif => ({ url: gif.images.original.url }) ))
-        })
-    }
+  handleSubmit = event => {
+    event.preventDefault()
+    this.props.fetchGIFs(this.state.query)
+  }
 
-  useEffect(()=>fetchGIFs(),[])
-
-    return(
+  render() {
+    return (
       <div>
-        <GifSearch fetchGIFs={fetchGIFs} />
-        <GifList gifs={gifs} />
+        <form onSubmit={this.handleSubmit}>
+          <input type="text" value={this.state.query} onChange={event => this.setState({query: event.target.value})} />
+        </form>
       </div>
     )
+  }
+
 }
+
+export default GifSearch
