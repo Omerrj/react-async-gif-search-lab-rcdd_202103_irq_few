@@ -9,7 +9,7 @@ const [query,setQuery]=useState([])
     props.fetchGIFs(query)
   }
 
-  render() {
+
     return (
       <div>
         <form onSubmit={handleSubmit}>
@@ -17,6 +17,5 @@ const [query,setQuery]=useState([])
         </form>
       </div>
     )
-  }
 
 }
